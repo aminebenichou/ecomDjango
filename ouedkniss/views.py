@@ -102,7 +102,7 @@ def confirmOrder(request, status, orderid):
     order.status = status
     order.save()
     return redirect(cartView)
- 
+  
 def deleteClient(request, id):
     # D
     Client.objects.get(id=id).delete()
