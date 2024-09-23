@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+</head>
+
+<body>
+    <div class="flex flex-row justify-between align-center">
+        <div class="flex flex-col justify-center align-center">
+            {% for product in products%}
+            <div>
+                <p>{{product.title}}</p>
+                <p>{{product.price}}</p>
+                <hr>
+            </div>
+            {% endfor %}
+        </div>
+        <div>
+            <form action="/products/" method="post">
+                {% csrf_token %}
+                <input type="text" name="title" placeholder="Enter title">
+                <input type="number" name="price" id="price">
+                <input type="text" name="desc" id="desc">
+                <input type="submit" value="Create Product">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
